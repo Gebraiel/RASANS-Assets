@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            width:80%;
+            margin: auto;
+
+        }
+        .logo{
+            width:300px;
+            margin: 200px auto;
+        }
+        img{
+            width:100%;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3,auto);
+            grid-gap:20px;
+            padding:20px;
+        }
+        .item{
+            background-image: url("image.png");
+            background-size: cover;
+            background-position: center center;
+            height:500px;
+            background-repeat: no-repeat;
+        }
+        @media(min-width:2000px)
+        {
+            .grid{
+                grid-template-columns: repeat(4,auto);
+            }
+        }
+        @media(max-width:991px){
+            .grid{
+                grid-template-columns: repeat(2,auto);
+            }
+        }
+        @media(max-width:661px){
+            .grid{
+                grid-template-columns: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+             <h1>
+                RASANS Assets
+             </h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="grid">
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+            <a class="item" href=""></a>
+        </div>
+    </div>
+    
+</body>
+</html>
