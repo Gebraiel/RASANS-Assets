@@ -4,79 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        .container{
-            width:80%;
-            margin: auto;
+    <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>;
 
-        }
-        .logo{
-            width:300px;
-            margin: 200px auto;
-        }
-        img{
-            width:100%;
-        }
-        .grid{
-            display: grid;
-            grid-template-columns: repeat(3,auto);
-            grid-gap:20px;
-            padding:20px;
-        }
-        .item{
-            background-image: url("image.png");
-            background-size: cover;
-            background-position: center center;
-            height:500px;
-            background-repeat: no-repeat;
-        }
-        @media(min-width:2000px)
-        {
-            .grid{
-                grid-template-columns: repeat(4,auto);
-            }
-        }
-        @media(max-width:991px){
-            .grid{
-                grid-template-columns: repeat(2,auto);
-            }
-        }
-        @media(max-width:661px){
-            .grid{
-                grid-template-columns: auto;
-            }
-        }
+    <style>
+    :root {
+        --main-color: #2196f3;
+        --font-color: #999999;
+    }
+    * {
+        font-family: sans-serif;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    h2 {
+        color: black;
+        margin: 20px 0px;
+    }
+    .parent {
+        margin: 50px auto;
+        width: 25%;
+        background-color: var(--main-color);
+        padding: 20px;
+
+    }
+
+    form {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--font-color);
+        background-color: white;
+        border-radius: 5px;
+    }
+    form div {
+        width: 100%;
+        border-bottom: 1px solid var(--font-color);
+        color: var(--font-color);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        font-size: small;
+    }
+    input {
+        border: none;
+        outline: none;
+    }
+
+    button {
+        width: 200px;
+        background-color: var(--main-color);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+
+    }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-             <h1>
-                RASANS Assets
-             </h1>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="grid">
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-            <a class="item" href=""></a>
-        </div>
-    </div>
-    
+    <div class="parent">
+        <form id="login-form">
+          <h2>Login</h2>
+          <h5 class="warning"style="color: red;visibility: hidden;">Wrong Username Or Password</h5>
+          <div>
+            <i class="fa-solid fa-user"></i>
+            <input id = "username" placeholder="Username *" type="text">
+          </div>
+
+          <div>
+            <i class="fa-solid fa-lock"></i>
+            <input id="password"placeholder=" Password *" type="password">
+          </div>
+          <button id ="login-button"type="button">LOGIN</button>
+        </form>
+      </div>
+      <script>
+        function clearInputs(){
+            let inputs=document.querySelectorAll('input');
+            inputs.forEach(function(e){
+                e.value = '';
+            })
+        }
+        let button = document.getElementById("login-button");
+        button.onclick = function(e){
+            console.log("button Clicked");
+            let username = document.getElementById('username');
+            let password = document.getElementById('password');
+            console.log(username);
+            console.log(password);
+            if(username.value === "admin" && password.value === "admin"){
+                console.log("Login Successful");
+                window.location.pathname="assets.html";
+            }else{
+                let warning = document.getElementsByClassName('warning')[0];
+                warning.style.visibility = 'visible';
+            }
+            clearInputs();
+        }
+      </script>
 </body>
 </html>
